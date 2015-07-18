@@ -15,7 +15,7 @@
 		EF6482111B59D08800AD92CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6482101B59D08800AD92CA /* Images.xcassets */; };
 		EF6482141B59D08800AD92CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6482121B59D08800AD92CA /* LaunchScreen.xib */; };
 		EF6482201B59D08800AD92CA /* interviewPrepWithObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF64821F1B59D08800AD92CA /* interviewPrepWithObjCTests.m */; };
-		EF6A3BBD1B5AA89000DE58E5 /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A3BBC1B5AA89000DE58E5 /* UIViewController+Tracking.m */; };
+		EF6A3BC11B5AB57B00DE58E5 /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A3BC01B5AB57B00DE58E5 /* UIViewController+Tracking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +43,8 @@
 		EF6482191B59D08800AD92CA /* interviewPrepWithObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = interviewPrepWithObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF64821E1B59D08800AD92CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF64821F1B59D08800AD92CA /* interviewPrepWithObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = interviewPrepWithObjCTests.m; sourceTree = "<group>"; };
-		EF6A3BBB1B5AA89000DE58E5 /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+Tracking.h"; path = "../UIViewController+Tracking.h"; sourceTree = "<group>"; };
-		EF6A3BBC1B5AA89000DE58E5 /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+Tracking.m"; path = "../UIViewController+Tracking.m"; sourceTree = "<group>"; };
+		EF6A3BBF1B5AB57B00DE58E5 /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
+		EF6A3BC01B5AB57B00DE58E5 /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +90,8 @@
 				EF6482051B59D08800AD92CA /* AppDelegate.m */,
 				EF64820A1B59D08800AD92CA /* ViewController.h */,
 				EF64820B1B59D08800AD92CA /* ViewController.m */,
-				EF6A3BBB1B5AA89000DE58E5 /* UIViewController+Tracking.h */,
-				EF6A3BBC1B5AA89000DE58E5 /* UIViewController+Tracking.m */,
+				EF6A3BBF1B5AB57B00DE58E5 /* UIViewController+Tracking.h */,
+				EF6A3BC01B5AB57B00DE58E5 /* UIViewController+Tracking.m */,
 				EF64820D1B59D08800AD92CA /* Main.storyboard */,
 				EF6482101B59D08800AD92CA /* Images.xcassets */,
 				EF6482121B59D08800AD92CA /* LaunchScreen.xib */,
@@ -227,7 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF6A3BBD1B5AA89000DE58E5 /* UIViewController+Tracking.m in Sources */,
+				EF6A3BC11B5AB57B00DE58E5 /* UIViewController+Tracking.m in Sources */,
 				EF6482091B59D08800AD92CA /* interviewPrepWithObjC.xcdatamodeld in Sources */,
 				EF6482061B59D08800AD92CA /* AppDelegate.m in Sources */,
 				EF64820C1B59D08800AD92CA /* ViewController.m in Sources */,
