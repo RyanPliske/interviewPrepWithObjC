@@ -20,17 +20,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    NSString *ryansName = nil;
-    if (ryansName.length == 4 ) {
-        NSLog(@"Ryan's name is four letters long");
-    }
-    
     [self createItemsUsingClassVariables];
     [self createItemsUsingInstanceVariables];
     [self logItems];
     [self compareItems];
+    [self checkIfInstanceItemSerialNumbersAreNil];
+}
+
+- (void)checkIfInstanceItemSerialNumbersAreNil {
+    for (RPItem *instanceItem in self.itemsFromInstance) {
+        @try {
+            NSInteger lengthOfSerialNumber = [self lengthOfSerialNumber:instanceItem.serialNumber];
+        } @catch (NSException *nameIsNilException) {
+            NSLog(@"%@", nameIsNilException.description);
+        }
+    }
+}
+
+- (NSInteger)lengthOfSerialNumber:(NSString *)name {
+
+    if (!name) {
+        NSException *ryansNameIsNotFourLettersLong = [NSException exceptionWithName:@"Name Error" reason:@"This appears to be nil" userInfo:nil];
+        @throw ryansNameIsNotFourLettersLong;
+    }
     
+    return name.length;
 }
 
 - (void)createItemsUsingClassVariables {
