@@ -52,7 +52,7 @@
     return _dateCreated;
 }
 
--(NSString *)description {
+- (NSString *)description {
     NSString *descriptionOfItem = [[NSString alloc] initWithFormat:@"\nItem Name: %@,\nItem Serial Number: %@,\nItem Value : %d,\nItem Creation Date: %@\n\n", _itemName, _serialNumber, (int)_valueInDollars, _dateCreated];
     return descriptionOfItem;
 }
