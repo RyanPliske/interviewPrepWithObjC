@@ -16,6 +16,22 @@
     return self;
 }
 
+- (NSMutableArray *)printFizzBuzzForFirstNumber:(NSInteger)number withLastNumber:(NSInteger)end withArray:(NSMutableArray *)resultingArray {
+    if (number <= end){
+        if (number % 3 == 0 && number % 5 == 0){
+            [resultingArray addObject:@"FizzBuzz"];
+        } else if (number % 5 == 0) {
+            [resultingArray addObject:@"Buzz"];
+        } else if (number % 3 == 0) {
+            [resultingArray addObject:@"Fizz"];
+        } else {
+           [resultingArray addObject:@"None"];
+        }
+        resultingArray = [self printFizzBuzzForFirstNumber:++number withLastNumber:end withArray:resultingArray];
+    }
+    return resultingArray;
+}
+
 #pragma mark - Setters
 
 - (void)setItemName:(NSString *)itemName {

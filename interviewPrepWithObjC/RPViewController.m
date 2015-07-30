@@ -25,21 +25,6 @@
     [self logItems];
     [self compareItems];
     [self checkIfInstanceItemSerialNumbersAreNil];
-    [self printFizzBuzzForNumber:1 LastNumber:100];
-}
-
-- (void)printFizzBuzzForNumber:(NSInteger)number LastNumber:(NSInteger)end {
-    if (number <= end){
-        if (number % 3 == 0 && number % 5 ==0){
-            NSLog(@"FizzBuzz");
-        } else if (number % 5 ==0) {
-            NSLog(@"Buzz");
-        } else if (number % 3 ==0) {
-            NSLog(@"Fizz");
-        }
-        
-        [self printFizzBuzzForNumber:++number LastNumber:end];
-    }
 }
 
 - (void)checkIfInstanceItemSerialNumbersAreNil {

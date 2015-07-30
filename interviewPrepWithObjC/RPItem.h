@@ -16,6 +16,8 @@
     NSDate *_dateCreated;
 }
 
+- (NSMutableArray *)printFizzBuzzForFirstNumber:(NSInteger)number withLastNumber:(NSInteger)end withArray:(NSMutableArray *)resultingArray;
+
 - (instancetype)initWithItemName:(NSString *)name;
 
 - (void)setItemName:(NSString *)itemName;

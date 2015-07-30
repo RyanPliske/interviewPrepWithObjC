@@ -15,7 +15,7 @@
 		EF64820F1B59D08800AD92CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF64820D1B59D08800AD92CA /* Main.storyboard */; };
 		EF6482111B59D08800AD92CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6482101B59D08800AD92CA /* Images.xcassets */; };
 		EF6482141B59D08800AD92CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6482121B59D08800AD92CA /* LaunchScreen.xib */; };
-		EF6482201B59D08800AD92CA /* interviewPrepWithObjCTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF64821F1B59D08800AD92CA /* interviewPrepWithObjCTests.m */; };
+		EF6482201B59D08800AD92CA /* RPItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF64821F1B59D08800AD92CA /* RPItemTest.m */; };
 		EF6A3BC11B5AB57B00DE58E5 /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A3BC01B5AB57B00DE58E5 /* UIViewController+Tracking.m */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +45,7 @@
 		EF6482131B59D08800AD92CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EF6482191B59D08800AD92CA /* interviewPrepWithObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = interviewPrepWithObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF64821E1B59D08800AD92CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF64821F1B59D08800AD92CA /* interviewPrepWithObjCTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = interviewPrepWithObjCTests.m; sourceTree = "<group>"; };
+		EF64821F1B59D08800AD92CA /* RPItemTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RPItemTest.m; path = interviewPrepWithObjCTests/RPItemTest.m; sourceTree = SOURCE_ROOT; };
 		EF6A3BBF1B5AB57B00DE58E5 /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
 		EF6A3BC01B5AB57B00DE58E5 /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +97,7 @@
 				EF6A3BC01B5AB57B00DE58E5 /* UIViewController+Tracking.m */,
 				EF454A611B5DC9C900B19884 /* RPItem.h */,
 				EF454A621B5DC9C900B19884 /* RPItem.m */,
+				EF64821F1B59D08800AD92CA /* RPItemTest.m */,
 				EF64820D1B59D08800AD92CA /* Main.storyboard */,
 				EF6482101B59D08800AD92CA /* Images.xcassets */,
 				EF6482121B59D08800AD92CA /* LaunchScreen.xib */,
@@ -118,7 +119,6 @@
 		EF64821C1B59D08800AD92CA /* interviewPrepWithObjCTests */ = {
 			isa = PBXGroup;
 			children = (
-				EF64821F1B59D08800AD92CA /* interviewPrepWithObjCTests.m */,
 				EF64821D1B59D08800AD92CA /* Supporting Files */,
 			);
 			path = interviewPrepWithObjCTests;
@@ -245,7 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF6482201B59D08800AD92CA /* interviewPrepWithObjCTests.m in Sources */,
+				EF6482201B59D08800AD92CA /* RPItemTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
