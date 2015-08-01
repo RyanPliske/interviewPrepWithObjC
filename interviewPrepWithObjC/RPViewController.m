@@ -22,9 +22,19 @@
     [super viewDidLoad];
     [self createItemsUsingClassVariables];
     [self createItemsUsingInstanceVariables];
-    [self logItems];
     [self compareItems];
     [self checkIfInstanceItemSerialNumbersAreNil];
+    [self createTenRandomItems];
+    [self logItemsFromClass];
+}
+
+- (void)createTenRandomItems {
+    if (self.itemsFromClass) {
+        [self.itemsFromClass removeAllObjects];
+    }
+    for (int count = 0; count <= 10; count++){
+        [self.itemsFromClass addObject:[RPItem randomItem]];
+    }
 }
 
 - (void)checkIfInstanceItemSerialNumbersAreNil {
@@ -32,7 +42,7 @@
         @try {
             NSInteger lengthOfSerialNumber = [self lengthOfSerialNumber:instanceItem.serialNumber];
         } @catch (NSException *nameIsNilException) {
-            NSLog(@"%@", nameIsNilException.description);
+            NSLog(@"%@\n", nameIsNilException.description);
         }
     }
 }
@@ -40,7 +50,7 @@
 - (NSInteger)lengthOfSerialNumber:(NSString *)name {
 
     if (!name) {
-        NSException *ryansNameIsNotFourLettersLong = [NSException exceptionWithName:@"Name Error" reason:@"This appears to be nil" userInfo:nil];
+        NSException *ryansNameIsNotFourLettersLong = [NSException exceptionWithName:@"Serial Number Error" reason:@"Serial No. appears to be nil" userInfo:nil];
         @throw ryansNameIsNotFourLettersLong;
     }
     
@@ -64,13 +74,17 @@
     [self.itemsFromInstance insertObject:[[RPItem alloc] initWithItemName:@"Zero"] atIndex:0];
 }
 
-- (void)logItems {
+- (void)logItemsFromClass {
+    NSLog(@"\n✅Items From Class:");
     for (RPItem *item in self.itemsFromClass) {
-        NSLog(@"%@", item);
+        NSLog(@"%@\n", item);
     }
-    
+}
+
+- (void)logItemsFromInstance {
+    NSLog(@"\n✅Items From Instance: ");
     for (RPItem *item in self.itemsFromInstance) {
-        NSLog(@"%@", item);
+        NSLog(@"%@\n", item);
     }
 }
 

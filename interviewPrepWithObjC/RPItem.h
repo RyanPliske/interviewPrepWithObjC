@@ -16,7 +16,7 @@
     NSDate *_dateCreated;
 }
 
-- (NSMutableArray *)printFizzBuzzForFirstNumber:(NSInteger)number withLastNumber:(NSInteger)end withArray:(NSMutableArray *)resultingArray;
++ (instancetype)randomItem;
 
 - (instancetype)initWithItemName:(NSString *)name;
 
@@ -31,5 +31,7 @@
 
 - (void)setDateCreated:(NSDate *)dateCreated;
 - (NSDate *)dateCreated;
+
+- (NSMutableArray *)printFizzBuzzForFirstNumber:(NSInteger)number withLastNumber:(NSInteger)end withArray:(NSMutableArray *)resultingArray;
 
 @end
