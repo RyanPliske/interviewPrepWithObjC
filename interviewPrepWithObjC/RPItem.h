@@ -9,28 +9,22 @@
 #import <Foundation/Foundation.h>
 
 @interface RPItem : NSObject
-{
-    NSString *_itemName;
-    NSString *_serialNumber;
-    NSInteger _valueInDollars;
-    NSDate *_dateCreated;
-}
+
+@property (nonatomic, copy) NSString *itemName;
+@property (nonatomic, readonly, copy) NSString *serialNumber;
+@property (nonatomic, readonly, unsafe_unretained) NSInteger valueInDollars;
+@property (nonatomic, readonly) NSDate *dateCreated;
+@property (nonatomic) RPItem *containedItem;
+@property (nonatomic) RPItem *container;
+
 
 + (instancetype)randomItem;
 
 - (instancetype)initWithItemName:(NSString *)name;
 
-- (void)setItemName:(NSString *)itemName;
-- (NSString *)itemName;
+- (NSString *)getSerialNumber;
 
 - (void)setSerialNumber:(NSString *)serialNumber;
-- (NSString *)serialNumber;
-
-- (void)setValueInDollars:(NSInteger)dollarAmt;
-- (NSInteger)valueInDollars;
-
-- (void)setDateCreated:(NSDate *)dateCreated;
-- (NSDate *)dateCreated;
 
 - (NSMutableArray *)printFizzBuzzForFirstNumber:(NSInteger)number withLastNumber:(NSInteger)end withArray:(NSMutableArray *)resultingArray;
 

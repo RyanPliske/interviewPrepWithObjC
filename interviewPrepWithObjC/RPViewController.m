@@ -25,7 +25,24 @@
     [self compareItems];
     [self checkIfInstanceItemSerialNumbersAreNil];
     [self createTenRandomItems];
-    [self logItemsFromClass];
+//    [self logItemsFromClass];
+    
+// a way to force an unrecognized selector sent to instance exception at runtime
+//    id lastObj = [self.itemsFromClass lastObject];
+//    [lastObj count];
+    
+    [self forceRetainCycle];
+    NSString *ryanReversed = [self reverseItemName:@"Ryan"];
+    NSLog(@"Ryan reversed %@", ryanReversed);
+}
+
+- (void)forceRetainCycle {
+    RPItem *backpack = [[RPItem alloc] initWithItemName:@"backpack"];
+    RPItem *calculator = [[RPItem alloc] init];
+    calculator.containedItem = backpack;
+    
+    calculator = nil;
+    backpack = nil;
 }
 
 - (void)createTenRandomItems {
@@ -35,6 +52,18 @@
     for (int count = 0; count <= 10; count++){
         [self.itemsFromClass addObject:[RPItem randomItem]];
     }
+}
+
+- (NSString *)reverseItemName:(NSString *)itemName {
+    NSUInteger charactersRemaining = itemName.length;
+    NSMutableString *reversedString = [[NSMutableString alloc] init];
+    
+    while (charactersRemaining > 0) {
+        charactersRemaining--;
+        [reversedString appendString:[itemName substringWithRange:NSMakeRange(charactersRemaining, 1)]];
+    }
+    
+    return reversedString;
 }
 
 - (void)checkIfInstanceItemSerialNumbersAreNil {

@@ -8,7 +8,13 @@
 
 #import "RPItem.h"
 
-@implementation RPItem
+@interface RPItem ()
+@end
+
+
+@implementation RPItem {
+    NSString *serialNumber;
+}
 
 + (instancetype)randomItem {
     NSArray *randomArrayOfNames = @[@"Fluffy Kittens", @"Lab Puppies", @"Baby Bunnies"];
@@ -37,44 +43,25 @@
     return [self initWithItemName: nil];
 }
 
+- (void)dealloc {
+    NSLog(@"Destroyed: %@", self);
+}
+
 #pragma mark - Setters
 
-- (void)setItemName:(NSString *)itemName {
-    _itemName = itemName;
-}
-
-- (void)setSerialNumber:(NSString *)serialNumber {
-    _serialNumber = serialNumber;
-}
-
-- (void)setValueInDollars:(NSInteger)dollarAmt {
-    _valueInDollars = dollarAmt;
-}
-
-- (void)setDateCreated:(NSDate *)dateCreated {
-    _dateCreated = dateCreated;
+- (void)setContainedItem:(RPItem *)containedItem {
+    _containedItem = containedItem;
+    containedItem.container = self;
 }
 
 #pragma mark - Getters
 
-- (NSString *)itemName {
-    return _itemName;
-}
-
-- (NSString *)serialNumber {
+- (NSString *)getSerialNumber; {
     return _serialNumber;
 }
 
-- (NSInteger)valueInDollars {
-    return _valueInDollars;
-}
-
-- (NSDate *)dateCreated {
-    return _dateCreated;
-}
-
 - (NSString *)description {
-    NSString *descriptionOfItem = [[NSString alloc] initWithFormat:@"\nItem Name: %@,\nItem Serial Number: %@,\nItem Value : %d,\nItem Creation Date: %@\n\n", _itemName, _serialNumber, (int)_valueInDollars, _dateCreated];
+    NSString *descriptionOfItem = [[NSString alloc] initWithFormat:@"\nItem Name: %@,\nItem Serial Number: %@,\nItem Value : %d,\nItem Creation Date: %@\n\n", self.itemName, self.serialNumber, (int)self.valueInDollars, self.dateCreated];
     return descriptionOfItem;
 }
 
