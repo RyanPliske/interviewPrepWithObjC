@@ -16,6 +16,7 @@
 		EF6482111B59D08800AD92CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6482101B59D08800AD92CA /* Images.xcassets */; };
 		EF6482141B59D08800AD92CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF6482121B59D08800AD92CA /* LaunchScreen.xib */; };
 		EF6482201B59D08800AD92CA /* RPItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = EF64821F1B59D08800AD92CA /* RPItemTest.m */; };
+		EF6585581B6EF10900DDADB1 /* RPItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6585571B6EF10900DDADB1 /* RPItemModel.m */; };
 		EF6A3BC11B5AB57B00DE58E5 /* UIViewController+Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6A3BC01B5AB57B00DE58E5 /* UIViewController+Tracking.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,8 @@
 		EF6482191B59D08800AD92CA /* interviewPrepWithObjCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = interviewPrepWithObjCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF64821E1B59D08800AD92CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF64821F1B59D08800AD92CA /* RPItemTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RPItemTest.m; path = interviewPrepWithObjCTests/RPItemTest.m; sourceTree = SOURCE_ROOT; };
+		EF6585561B6EF10900DDADB1 /* RPItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPItemModel.h; sourceTree = "<group>"; };
+		EF6585571B6EF10900DDADB1 /* RPItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPItemModel.m; sourceTree = "<group>"; };
 		EF6A3BBF1B5AB57B00DE58E5 /* UIViewController+Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Tracking.h"; sourceTree = "<group>"; };
 		EF6A3BC01B5AB57B00DE58E5 /* UIViewController+Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Tracking.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +96,8 @@
 				EF6482051B59D08800AD92CA /* AppDelegate.m */,
 				EF64820A1B59D08800AD92CA /* RPViewController.h */,
 				EF64820B1B59D08800AD92CA /* RPViewController.m */,
+				EF6585561B6EF10900DDADB1 /* RPItemModel.h */,
+				EF6585571B6EF10900DDADB1 /* RPItemModel.m */,
 				EF6A3BBF1B5AB57B00DE58E5 /* UIViewController+Tracking.h */,
 				EF6A3BC01B5AB57B00DE58E5 /* UIViewController+Tracking.m */,
 				EF454A611B5DC9C900B19884 /* RPItem.h */,
@@ -235,6 +240,7 @@
 				EF454A631B5DC9C900B19884 /* RPItem.m in Sources */,
 				EF6A3BC11B5AB57B00DE58E5 /* UIViewController+Tracking.m in Sources */,
 				EF6482091B59D08800AD92CA /* interviewPrepWithObjC.xcdatamodeld in Sources */,
+				EF6585581B6EF10900DDADB1 /* RPItemModel.m in Sources */,
 				EF6482061B59D08800AD92CA /* AppDelegate.m in Sources */,
 				EF64820C1B59D08800AD92CA /* RPViewController.m in Sources */,
 				EF6482031B59D08800AD92CA /* main.m in Sources */,

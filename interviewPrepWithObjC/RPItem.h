@@ -1,11 +1,3 @@
-//
-//  RPItem.h
-//  interviewPrepWithObjC
-//
-//  Created by Ryan Pliske on 7/20/15.
-//  Copyright (c) 2015 Ryan Pliske. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 
 @interface RPItem : NSObject
