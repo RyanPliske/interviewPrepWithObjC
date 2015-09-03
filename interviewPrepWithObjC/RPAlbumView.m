@@ -6,7 +6,7 @@
     UIActivityIndicatorView *_indicator;
 }
 
-- (id)initWithFrame:(CGRect)frame albumCover:(NSString *)albumCover {
+- (instancetype)initWithFrame:(CGRect)frame albumCover:(NSString *)albumCover {
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor blackColor];

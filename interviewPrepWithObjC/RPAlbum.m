@@ -6,7 +6,7 @@
 
 @implementation RPAlbum
 
-- (id)initWithTitle:(NSString *)title artist:(NSString *)artist coverUrl:(NSString *)coverUrl year:(NSString *)year {
+- (instancetype)initWithTitle:(NSString *)title artist:(NSString *)artist coverUrl:(NSString *)coverUrl year:(NSString *)year {
     self = [super init];
     if (self) {
         _title = title;

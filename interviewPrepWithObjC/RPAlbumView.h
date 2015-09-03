@@ -2,6 +2,6 @@
 
 @interface RPAlbumView : UIView
 
-- (id)initWithFrame:(CGRect)frame albumCover:(NSString*)albumCover;
+- (instancetype)initWithFrame:(CGRect)frame albumCover:(NSString *)albumCover;
 
 @end
