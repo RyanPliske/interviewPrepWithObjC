@@ -2,14 +2,17 @@
 #import "RPItemModel.h"
 #import "RPLibraryAPI.h"
 #import "RPAlbum+TableRepresentation.h"
+#import "RPHorizontalScroller.h"
+#import "RPAlbumView.h"
 
-@interface RPViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface RPViewController () <UITableViewDataSource, UITableViewDelegate, RPHorizontalScrollerDelegate>
 
 @property (nonatomic) RPItemModel *itemModel;
 @property (nonatomic) UITableView *dataTable;
 @property (nonatomic) NSArray *allAlbums;
 @property (nonatomic) NSDictionary *currentAlbumData;
 @property (nonatomic, unsafe_unretained) int currentAlbumIndex;
+@property (nonatomic) RPHorizontalScroller *scroller;
 
 @end
 
@@ -30,12 +33,16 @@
     self.dataTable.backgroundView = nil;
     [self.view addSubview:self.dataTable];
     
-//    self.currentAlbumData = [[NSDictionary alloc] init];
+    self.scroller = [[RPHorizontalScroller alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 120)];
+    self.scroller.backgroundColor = [UIColor colorWithRed:0.24f green:0.35f blue:0.49f alpha:1];
+    self.scroller.delegate = self;
+    [self.view addSubview:self.scroller];
+    
+    [self reloadScroller];
     [self showDataForAlbumAtIndex:self.currentAlbumIndex];
 }
 
 - (void)showDataForAlbumAtIndex:(int)albumIndex {
-    // defensive code: make sure the requested index is lower than the amount of albums
     if (albumIndex < self.allAlbums.count)
     {
         RPAlbum *album = self.allAlbums[albumIndex];
@@ -47,6 +54,16 @@
     }
     
     [self.dataTable reloadData];
+}
+
+- (void)reloadScroller
+{
+    self.allAlbums = [[RPLibraryAPI sharedInstance] getAlbums];
+    if (self.currentAlbumIndex < 0) self.currentAlbumIndex = 0;
+    else if (self.currentAlbumIndex >= self.allAlbums.count) self.currentAlbumIndex = self.allAlbums.count-1;
+    [self.scroller reload];
+    
+    [self showDataForAlbumAtIndex:self.currentAlbumIndex];
 }
 
 #pragma UITableViewDataSource
@@ -68,6 +85,25 @@
     cell.detailTextLabel.text = self.currentAlbumData[@"values"][indexPath.row];
     
     return cell;
+}
+
+#pragma mark - HorizontalScrollerDelegate methods
+
+- (void)horizontalScroller:(RPHorizontalScroller *)scroller clickedViewAtIndex:(int)index
+{
+    self.currentAlbumIndex = index;
+    [self showDataForAlbumAtIndex:index];
+}
+
+- (NSInteger)numberOfViewsForHorizontalScroller:(RPHorizontalScroller*)scroller
+{
+    return self.allAlbums.count;
+}
+
+- (UIView *)horizontalScroller:(RPHorizontalScroller*)scroller viewAtIndex:(int)index
+{
+    RPAlbum *album = self.allAlbums[index];
+    return [[RPAlbumView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) albumCover:album.coverUrl];
 }
 
 @end
