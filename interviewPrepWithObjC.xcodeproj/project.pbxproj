@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EF454A631B5DC9C900B19884 /* RPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EF454A621B5DC9C900B19884 /* RPItem.m */; };
+		EF490E1A1B98BBC700850A1A /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF490E191B98BBC700850A1A /* HTTPClient.m */; };
 		EF6482031B59D08800AD92CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6482021B59D08800AD92CA /* main.m */; };
 		EF6482061B59D08800AD92CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6482051B59D08800AD92CA /* AppDelegate.m */; };
 		EF6482091B59D08800AD92CA /* interviewPrepWithObjC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF6482071B59D08800AD92CA /* interviewPrepWithObjC.xcdatamodeld */; };
@@ -33,6 +34,8 @@
 /* Begin PBXFileReference section */
 		EF454A611B5DC9C900B19884 /* RPItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPItem.h; sourceTree = "<group>"; };
 		EF454A621B5DC9C900B19884 /* RPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPItem.m; sourceTree = "<group>"; };
+		EF490E181B98BBC700850A1A /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
+		EF490E191B98BBC700850A1A /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		EF6481FD1B59D08800AD92CA /* interviewPrepWithObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = interviewPrepWithObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF6482011B59D08800AD92CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF6482021B59D08800AD92CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -83,8 +86,6 @@
 		EF490E161B98BABF00850A1A /* Basic Practice */ = {
 			isa = PBXGroup;
 			children = (
-				EF64820A1B59D08800AD92CA /* RPViewController.h */,
-				EF64820B1B59D08800AD92CA /* RPViewController.m */,
 				EF6585561B6EF10900DDADB1 /* RPItemModel.h */,
 				EF6585571B6EF10900DDADB1 /* RPItemModel.m */,
 				EF454A611B5DC9C900B19884 /* RPItem.h */,
@@ -92,6 +93,15 @@
 				EF64821F1B59D08800AD92CA /* RPItemTest.m */,
 			);
 			name = "Basic Practice";
+			sourceTree = "<group>";
+		};
+		EF490E171B98BBA400850A1A /* Design Patterns Practice */ = {
+			isa = PBXGroup;
+			children = (
+				EF490E181B98BBC700850A1A /* HTTPClient.h */,
+				EF490E191B98BBC700850A1A /* HTTPClient.m */,
+			);
+			name = "Design Patterns Practice";
 			sourceTree = "<group>";
 		};
 		EF6481F41B59D08800AD92CA = {
@@ -115,8 +125,11 @@
 		EF6481FF1B59D08800AD92CA /* interviewPrepWithObjC */ = {
 			isa = PBXGroup;
 			children = (
+				EF490E171B98BBA400850A1A /* Design Patterns Practice */,
 				EF490E161B98BABF00850A1A /* Basic Practice */,
 				EF490E151B98B9DB00850A1A /* Method Swizzling */,
+				EF64820A1B59D08800AD92CA /* RPViewController.h */,
+				EF64820B1B59D08800AD92CA /* RPViewController.m */,
 				EF6482041B59D08800AD92CA /* AppDelegate.h */,
 				EF6482051B59D08800AD92CA /* AppDelegate.m */,
 				EF64820D1B59D08800AD92CA /* Main.storyboard */,
@@ -259,6 +272,7 @@
 				EF6585581B6EF10900DDADB1 /* RPItemModel.m in Sources */,
 				EF6482061B59D08800AD92CA /* AppDelegate.m in Sources */,
 				EF64820C1B59D08800AD92CA /* RPViewController.m in Sources */,
+				EF490E1A1B98BBC700850A1A /* HTTPClient.m in Sources */,
 				EF6482031B59D08800AD92CA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
