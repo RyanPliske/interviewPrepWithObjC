@@ -116,7 +116,6 @@
 				EF490E241B98C3D300850A1A /* ViewController */,
 				EF490E231B98C3CC00850A1A /* View */,
 				EF490E221B98C3C500850A1A /* Model */,
-				EF490E211B98C3BB00850A1A /* API */,
 			);
 			name = "Design Patterns Practice";
 			sourceTree = "<group>";
@@ -141,6 +140,7 @@
 				EF490E1C1B98BD4100850A1A /* RPAlbum.m */,
 				EF490E2F1B98EB3700850A1A /* RPAlbum+TableRepresentation.h */,
 				EF490E301B98EB3700850A1A /* RPAlbum+TableRepresentation.m */,
+				EF490E211B98C3BB00850A1A /* API */,
 			);
 			name = Model;
 			sourceTree = "<group>";
