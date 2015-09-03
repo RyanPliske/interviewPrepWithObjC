@@ -77,6 +77,18 @@
     }
 }
 
+- (NSString *)reverseItemName:(NSString *)itemName {
+    NSUInteger charactersRemaining = itemName.length;
+    NSMutableString *reversedString = [[NSMutableString alloc] init];
+    
+    while (charactersRemaining > 0) {
+        charactersRemaining--;
+        [reversedString appendString:[itemName substringWithRange:NSMakeRange(charactersRemaining, 1)]];
+    }
+    
+    return reversedString;
+}
+
 - (void)forceRetainCycle {
     RPItem *backpack = [[RPItem alloc] initWithItemName:@"backpack"];
     RPItem *calculator = [[RPItem alloc] init];
@@ -84,6 +96,7 @@
     
     calculator = nil;
     backpack = nil;
+    
 }
 
 - (void)checkIfInstanceItemSerialNumbersAreNil {

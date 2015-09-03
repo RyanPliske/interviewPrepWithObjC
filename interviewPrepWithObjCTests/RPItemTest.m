@@ -2,28 +2,15 @@
 #import <XCTest/XCTest.h>
 #import "RPItem.h"
 
-@interface FizzBuzzItem : RPItem
-
-@end
-
-@implementation FizzBuzzItem
-
-- (NSMutableArray *)printFizzBuzzForFirstNumber:(NSInteger)number LastNumber:(NSInteger)end withArray:(NSMutableArray *)results {
-    [super printFizzBuzzForFirstNumber:number withLastNumber:end withArray:results];
-    return results;
-}
-
-@end
-
 @interface RPItemTest : XCTestCase
-@property (nonatomic) FizzBuzzItem *item;
+@property (nonatomic) RPItem *testObject;
 @end
 
 @implementation RPItemTest
 
 - (void)setUp {
     [super setUp];
-    _item = [[FizzBuzzItem alloc] init];
+    _testObject = [[RPItem alloc] init];
 }
 
 - (void)tearDown {
@@ -32,13 +19,13 @@
 
 - (void)testFizzBuzzDoesNotGoOutOfBounds {
     NSMutableArray *results = [[NSMutableArray alloc] init];
-    results = [self.item printFizzBuzzForFirstNumber:1 LastNumber:100 withArray:(NSMutableArray *)results];
+    results = [self.testObject printFizzBuzzForFirstNumber:1 withLastNumber:100 withArray:results];
     XCTAssertLessThan(results.count, 101);
 }
 
 - (void)testFizzBuzzReturnsFizz {
     NSMutableArray *results = [[NSMutableArray alloc] init];
-    results = [self.item printFizzBuzzForFirstNumber:1 LastNumber:15 withArray:(NSMutableArray *)results];
+    results = [self.testObject printFizzBuzzForFirstNumber:1 withLastNumber:15 withArray:results];
     XCTAssertEqualObjects(@"Fizz", results[2]);
     XCTAssertEqualObjects(@"Fizz", results[5]);
     XCTAssertEqualObjects(@"Fizz", results[8]);
@@ -46,7 +33,7 @@
 
 - (void)testFizzBuzzReturnsBuzz {
     NSMutableArray *results = [[NSMutableArray alloc] init];
-    results = [self.item printFizzBuzzForFirstNumber:1 LastNumber:15 withArray:(NSMutableArray *)results];
+    results = [self.testObject printFizzBuzzForFirstNumber:1 withLastNumber:15 withArray:results];
     XCTAssertEqualObjects(@"Buzz", results[4]);
     XCTAssertEqualObjects(@"Buzz", results[9]);
     XCTAssertNotEqualObjects(@"Buzz", results[14]);
@@ -54,7 +41,7 @@
 
 - (void)testFizzBuzzReturnsFizzBuzz {
     NSMutableArray *results = [[NSMutableArray alloc] init];
-    results = [self.item printFizzBuzzForFirstNumber:1 LastNumber:30 withArray:(NSMutableArray *)results];
+    results = [self.testObject printFizzBuzzForFirstNumber:1 withLastNumber:30 withArray:results];
     XCTAssertEqualObjects(@"FizzBuzz", results[14]);
     XCTAssertEqualObjects(@"FizzBuzz", results[29]);
 }

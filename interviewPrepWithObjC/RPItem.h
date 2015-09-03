@@ -16,8 +16,6 @@
 
 - (NSString *)getSerialNumber;
 
-- (void)setSerialNumber:(NSString *)serialNumber;
-
 - (NSMutableArray *)printFizzBuzzForFirstNumber:(NSInteger)number withLastNumber:(NSInteger)end withArray:(NSMutableArray *)resultingArray;
 
 @end

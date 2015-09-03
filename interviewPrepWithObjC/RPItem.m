@@ -60,7 +60,7 @@
 #pragma mark - Practice Methods
 
 - (NSMutableArray *)printFizzBuzzForFirstNumber:(NSInteger)number withLastNumber:(NSInteger)end withArray:(NSMutableArray *)resultingArray {
-    if (number <= end){
+    if (number <= end) {
         if (number % 3 == 0 && number % 5 == 0){
             [resultingArray addObject:@"FizzBuzz"];
         } else if (number % 5 == 0) {
