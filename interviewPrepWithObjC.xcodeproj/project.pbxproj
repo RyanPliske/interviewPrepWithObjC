@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EF454A631B5DC9C900B19884 /* RPItem.m in Sources */ = {isa = PBXBuildFile; fileRef = EF454A621B5DC9C900B19884 /* RPItem.m */; };
 		EF490E1A1B98BBC700850A1A /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EF490E191B98BBC700850A1A /* HTTPClient.m */; };
+		EF490E1D1B98BD4100850A1A /* RPAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = EF490E1C1B98BD4100850A1A /* RPAlbum.m */; };
+		EF490E201B98BEC300850A1A /* RPAlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF490E1F1B98BEC300850A1A /* RPAlbumView.m */; };
 		EF6482031B59D08800AD92CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6482021B59D08800AD92CA /* main.m */; };
 		EF6482061B59D08800AD92CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF6482051B59D08800AD92CA /* AppDelegate.m */; };
 		EF6482091B59D08800AD92CA /* interviewPrepWithObjC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF6482071B59D08800AD92CA /* interviewPrepWithObjC.xcdatamodeld */; };
@@ -36,6 +38,10 @@
 		EF454A621B5DC9C900B19884 /* RPItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPItem.m; sourceTree = "<group>"; };
 		EF490E181B98BBC700850A1A /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
 		EF490E191B98BBC700850A1A /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
+		EF490E1B1B98BD4100850A1A /* RPAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPAlbum.h; sourceTree = "<group>"; };
+		EF490E1C1B98BD4100850A1A /* RPAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPAlbum.m; sourceTree = "<group>"; };
+		EF490E1E1B98BEC300850A1A /* RPAlbumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPAlbumView.h; sourceTree = "<group>"; };
+		EF490E1F1B98BEC300850A1A /* RPAlbumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPAlbumView.m; sourceTree = "<group>"; };
 		EF6481FD1B59D08800AD92CA /* interviewPrepWithObjC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = interviewPrepWithObjC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF6482011B59D08800AD92CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF6482021B59D08800AD92CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,10 +104,48 @@
 		EF490E171B98BBA400850A1A /* Design Patterns Practice */ = {
 			isa = PBXGroup;
 			children = (
+				EF490E241B98C3D300850A1A /* ViewController */,
+				EF490E231B98C3CC00850A1A /* View */,
+				EF490E221B98C3C500850A1A /* Model */,
+				EF490E211B98C3BB00850A1A /* API */,
+			);
+			name = "Design Patterns Practice";
+			sourceTree = "<group>";
+		};
+		EF490E211B98C3BB00850A1A /* API */ = {
+			isa = PBXGroup;
+			children = (
 				EF490E181B98BBC700850A1A /* HTTPClient.h */,
 				EF490E191B98BBC700850A1A /* HTTPClient.m */,
 			);
-			name = "Design Patterns Practice";
+			name = API;
+			sourceTree = "<group>";
+		};
+		EF490E221B98C3C500850A1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF490E1B1B98BD4100850A1A /* RPAlbum.h */,
+				EF490E1C1B98BD4100850A1A /* RPAlbum.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EF490E231B98C3CC00850A1A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF490E1E1B98BEC300850A1A /* RPAlbumView.h */,
+				EF490E1F1B98BEC300850A1A /* RPAlbumView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EF490E241B98C3D300850A1A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EF64820A1B59D08800AD92CA /* RPViewController.h */,
+				EF64820B1B59D08800AD92CA /* RPViewController.m */,
+			);
+			name = ViewController;
 			sourceTree = "<group>";
 		};
 		EF6481F41B59D08800AD92CA = {
@@ -128,8 +172,6 @@
 				EF490E171B98BBA400850A1A /* Design Patterns Practice */,
 				EF490E161B98BABF00850A1A /* Basic Practice */,
 				EF490E151B98B9DB00850A1A /* Method Swizzling */,
-				EF64820A1B59D08800AD92CA /* RPViewController.h */,
-				EF64820B1B59D08800AD92CA /* RPViewController.m */,
 				EF6482041B59D08800AD92CA /* AppDelegate.h */,
 				EF6482051B59D08800AD92CA /* AppDelegate.m */,
 				EF64820D1B59D08800AD92CA /* Main.storyboard */,
@@ -272,6 +314,8 @@
 				EF6585581B6EF10900DDADB1 /* RPItemModel.m in Sources */,
 				EF6482061B59D08800AD92CA /* AppDelegate.m in Sources */,
 				EF64820C1B59D08800AD92CA /* RPViewController.m in Sources */,
+				EF490E201B98BEC300850A1A /* RPAlbumView.m in Sources */,
+				EF490E1D1B98BD4100850A1A /* RPAlbum.m in Sources */,
 				EF490E1A1B98BBC700850A1A /* HTTPClient.m in Sources */,
 				EF6482031B59D08800AD92CA /* main.m in Sources */,
 			);
