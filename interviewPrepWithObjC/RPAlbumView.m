@@ -2,7 +2,6 @@
 
 @implementation RPAlbumView
 {
-    UIImageView *_coverImage;
     UIActivityIndicatorView *_indicator;
 }
 

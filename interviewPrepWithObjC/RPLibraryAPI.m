@@ -26,8 +26,13 @@
     if (self) {
         _persistencyManager = [[RPPersistencyManager alloc] init];
         _networkClient = [[RPNetworkClient alloc] init];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadImage:) name:@"BLDownloadImageNotification" object:nil];
     }
     return self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (NSArray *)getAlbums {
@@ -46,6 +51,23 @@
     if (self.isOnline) {
         [self.networkClient postRequest:@"/api/deleteAlbum" body:[@(index) description]];
     }
+}
+
+- (void)downloadImageFor:(UIImageView *)imageView withUrl:(NSString *)coverUrl {
+    
+    imageView.image = [self.persistencyManager getImage:[coverUrl lastPathComponent]];
+    
+    if (imageView.image == nil)
+    {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            UIImage *image = [self.networkClient downloadImage:coverUrl];
+            
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                imageView.image = image;
+                [self.persistencyManager saveImage:image filename:[coverUrl lastPathComponent]];
+            });
+        });
+    }    
 }
 
 @end

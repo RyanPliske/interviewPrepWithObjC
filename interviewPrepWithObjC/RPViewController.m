@@ -87,7 +87,7 @@
     return cell;
 }
 
-#pragma mark - HorizontalScrollerDelegate methods
+#pragma mark - RPHorizontalScrollerDelegate methods
 
 - (void)horizontalScroller:(RPHorizontalScroller *)scroller clickedViewAtIndex:(int)index
 {
@@ -103,7 +103,15 @@
 - (UIView *)horizontalScroller:(RPHorizontalScroller*)scroller viewAtIndex:(int)index
 {
     RPAlbum *album = self.allAlbums[index];
-    return [[RPAlbumView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) albumCover:album.coverUrl];
+    RPAlbumView *albumView = [[RPAlbumView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) albumCover:album.coverUrl];
+    [self downloadImageFor:albumView.coverImage withUrl:album.coverUrl];
+    return albumView;
+}
+
+#pragma mark - RPAlbumViewDelegate
+
+- (void)downloadImageFor:(UIImageView *)imageView withUrl:(NSString *)coverUrl {
+    [[RPLibraryAPI sharedInstance] downloadImageFor:imageView withUrl:coverUrl];
 }
 
 @end
