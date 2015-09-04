@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface RPAlbum : NSObject
+@interface RPAlbum : NSObject <NSCoding>
 
 @property (nonatomic, copy, readonly) NSString *title, *artist, *genre, *coverUrl, *year;
 

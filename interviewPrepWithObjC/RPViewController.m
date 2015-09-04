@@ -77,6 +77,7 @@
 - (void)saveCurrentState
 {
     [[NSUserDefaults standardUserDefaults] setInteger:self.currentAlbumIndex forKey:@"currentAlbumIndex"];
+    [[RPLibraryAPI sharedInstance] saveAlbums];
 }
 
 - (void)loadPreviousState

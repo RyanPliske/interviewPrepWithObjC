@@ -9,5 +9,6 @@
 - (void)addAlbum:(RPAlbum *)album atIndex:(int)index;
 - (void)deleteAlbumAtIndex:(int)index;
 - (void)downloadImageFor:(UIImageView *)imageView withUrl:(NSString *)coverUrl;
+- (void)saveAlbums;
 
 @end

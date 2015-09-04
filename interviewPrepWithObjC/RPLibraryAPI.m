@@ -41,6 +41,10 @@
     }
 }
 
+- (void)saveAlbums {
+    [self.persistencyManager saveAlbums];
+}
+
 - (void)deleteAlbumAtIndex:(int)index {
     [self.persistencyManager deleteAlbumAtIndex:index];
     if (self.isOnline) {
