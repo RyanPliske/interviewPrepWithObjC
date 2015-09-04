@@ -26,13 +26,8 @@
     if (self) {
         _persistencyManager = [[RPPersistencyManager alloc] init];
         _networkClient = [[RPNetworkClient alloc] init];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(downloadImage:) name:@"BLDownloadImageNotification" object:nil];
     }
     return self;
-}
-
-- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (NSArray *)getAlbums {
