@@ -38,8 +38,16 @@
     self.scroller.delegate = self;
     [self.view addSubview:self.scroller];
     
-    [self reloadScroller];
+    
     [self showDataForAlbumAtIndex:self.currentAlbumIndex];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCurrentState) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [self loadPreviousState];
+    [self reloadScroller];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)showDataForAlbumAtIndex:(int)albumIndex {
@@ -63,6 +71,17 @@
     else if (self.currentAlbumIndex >= self.allAlbums.count) self.currentAlbumIndex = self.allAlbums.count-1;
     [self.scroller reload];
     
+    [self showDataForAlbumAtIndex:self.currentAlbumIndex];
+}
+
+- (void)saveCurrentState
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:self.currentAlbumIndex forKey:@"currentAlbumIndex"];
+}
+
+- (void)loadPreviousState
+{
+    self.currentAlbumIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentAlbumIndex"];
     [self showDataForAlbumAtIndex:self.currentAlbumIndex];
 }
 
@@ -106,6 +125,10 @@
     RPAlbumView *albumView = [[RPAlbumView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) albumCover:album.coverUrl];
     [self downloadImageFor:albumView.coverImage withUrl:album.coverUrl];
     return albumView;
+}
+
+-(NSInteger)initialViewIndexForHorizontalScroller:(RPHorizontalScroller *)scroller {
+    return self.currentAlbumIndex;
 }
 
 #pragma mark - RPAlbumViewDelegate
