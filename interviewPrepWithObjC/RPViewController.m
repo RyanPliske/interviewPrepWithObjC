@@ -13,6 +13,8 @@
 @property (nonatomic) NSDictionary *currentAlbumData;
 @property (nonatomic, unsafe_unretained) int currentAlbumIndex;
 @property (nonatomic) RPHorizontalScroller *scroller;
+@property (nonatomic) UIToolbar *toolBar;
+@property (nonatomic) NSMutableArray *undoStack;
 
 @end
 
@@ -22,6 +24,14 @@
     [super viewDidLoad];
     _itemModel = [[RPItemModel alloc] init];
     
+    _toolBar = [[UIToolbar alloc] init];
+    UIBarButtonItem *undoItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemUndo target:self action:@selector(undoAction)];
+    undoItem.enabled = NO;
+    UIBarButtonItem *space = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *delete = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemTrash target:self action:@selector(deleteAlbum)];
+    [self.toolBar setItems:@[undoItem,space,delete]];
+    [self.view addSubview:self.toolBar];
+    _undoStack = [[NSMutableArray alloc] init];
     self.view.backgroundColor = [UIColor colorWithRed:0.76f green:0.81f blue:0.87f alpha:1];
     
     self.currentAlbumIndex = 0;
@@ -43,6 +53,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCurrentState) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [self loadPreviousState];
     [self reloadScroller];
+}
+
+- (void)viewWillLayoutSubviews {
+    self.toolBar.frame = CGRectMake(0, self.view.frame.size.height-44, self.view.frame.size.width, 44);
+    self.dataTable.frame = CGRectMake(0, 130, self.view.frame.size.width, self.view.frame.size.height - 200);
 }
 
 - (void)dealloc
@@ -84,6 +99,48 @@
 {
     self.currentAlbumIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"currentAlbumIndex"];
     [self showDataForAlbumAtIndex:self.currentAlbumIndex];
+}
+
+- (void)addAlbum:(RPAlbum*)album atIndex:(int)index
+{
+    [[RPLibraryAPI sharedInstance] addAlbum:album atIndex:index];
+    self.currentAlbumIndex = index;
+    [self reloadScroller];
+}
+
+- (void)deleteAlbum
+{
+    RPAlbum *deletedAlbum = self.allAlbums[self.currentAlbumIndex];
+    
+    NSMethodSignature *sig = [self methodSignatureForSelector:@selector(addAlbum:atIndex:)];
+    NSInvocation *undoAction = [NSInvocation invocationWithMethodSignature:sig];
+    [undoAction setTarget:self];
+    [undoAction setSelector:@selector(addAlbum:atIndex:)];
+    [undoAction setArgument:&deletedAlbum atIndex:2];
+    [undoAction setArgument:&_currentAlbumIndex atIndex:3];
+    [undoAction retainArguments];
+    
+    [self.undoStack addObject:undoAction];
+    
+    [[RPLibraryAPI sharedInstance] deleteAlbumAtIndex:self.currentAlbumIndex];
+    [self reloadScroller];
+    
+    [self.toolBar.items[0] setEnabled:YES];
+}
+
+- (void)undoAction
+{
+    if (self.undoStack.count > 0)
+    {
+        NSInvocation *undoAction = [self.undoStack lastObject];
+        [self.undoStack removeLastObject];
+        [undoAction invoke];
+    }
+    
+    if (self.undoStack.count == 0)
+    {
+        [self.toolBar.items[0] setEnabled:NO];
+    }
 }
 
 #pragma UITableViewDataSource
