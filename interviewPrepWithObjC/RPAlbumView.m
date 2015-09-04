@@ -17,8 +17,23 @@
         _indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
         [_indicator startAnimating];
         [self addSubview:_indicator];
+        
+        [_coverImage addObserver:self forKeyPath:@"image" options:0 context:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [_coverImage removeObserver:self forKeyPath:@"image"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:@"image"])
+    {
+        [_indicator stopAnimating];
+    }
 }
 
 @end
